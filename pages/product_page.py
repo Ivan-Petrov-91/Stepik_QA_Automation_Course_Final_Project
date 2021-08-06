@@ -33,3 +33,10 @@ class ProductPage(BasePage):
         basket_total = self.browser.find_element(*ProductPageLocators.BASKET_TOTAL)
         basket_total_text = basket_total.text
         return basket_total_text
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            'Success message is present, but should not be'
+
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), 'Success message did not disappear'
