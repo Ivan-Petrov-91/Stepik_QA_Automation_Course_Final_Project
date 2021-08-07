@@ -58,3 +58,7 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.element_is_present(*BasePageLocators.LOGIN_LINK), 'Login link is not present'
+
+    def go_to_basket_using_upper_button(self):
+        upper_basket_button = self.browser.find_element(*BasePageLocators.UPPER_BASKET_BUTTON)
+        upper_basket_button.click()
